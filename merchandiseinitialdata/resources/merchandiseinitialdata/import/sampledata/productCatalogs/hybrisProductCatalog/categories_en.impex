@@ -1,0 +1,299 @@
+# ImpEx for Importing Categories into Merchandise Store
+   
+# Macros / Replacement Parameter definitions
+$productCatalog=hybrisProductCatalog
+   
+$catalogVersion=catalogversion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default=$productCatalog:Staged]
+   
+$lang=en
+   
+UPDATE Category;$catalogVersion;code[unique=true];name[lang=$lang];description[lang=$lang]
+;;1;Hybris Catalogue;
+;;100;Stuff;
+;;200;Clothes;
+;;210;Shirts;
+;;220;Sweats;
+
+;;2;grofers Catalogue;
+;;250;Grocery & Staples;
+;;260;Fruits;
+;;270;Vegetables;
+;;280;Breakfast & Dairy;
+;;290;Soft Drinks;
+;;300;Chips & Crisps;
+;;310;Namkeen;
+;;320;Biscuits & Cookies;
+;;330;Fruit Drinks & Juices;
+;;340;Noodles & Pasta;
+;;350;Body & Face Care;
+;;360;Hair Care;
+;;370;Laundry Detergents;
+;;380;Dishwashers & Cleaners;
+;;390;Tea;
+;;400;Baby Diapers;
+
+;;500;grofers Catalogue;
+
+# Create Categories
+UPDATE Category;code[unique=true];$catalogVersion;name[lang=$lang]
+
+#SuperCategory-1
+
+;55551;;Fruits & Vegetables
+;55552;;Grocery & Staples
+;55553;;Beverages
+;55554;;Home & Kitchen
+;55555;;Household Needs
+;55556;;Personal Care
+;55557;;Breakfast & Diary
+;55558;;Biscuits Snacks & Chocolates
+;55559;;Noodles Pasta & Instant Food
+;55560;;Sauces Jams & Condiments
+;55561;;Diwali
+;55562;;Baby & Kids
+;55563;;Organic & Gourmet
+;55564;;Pet Care
+;55565;;Meats & Seafood
+
+#SuperCategory-2
+;5555101;;Fruits & Vegetables Baskets
+;5555102;;Fruits
+;5555103;;Vegetables
+;5555104;;Cut Fresh Sprouts & Herbs
+;5555201;;Diwali Gift Packs
+;5555202;;Dry Fruits & Nuts
+;5555203;;Edible Oil
+;5555204;;Ghee & Vanaspati
+;5555205;;Spices
+;5555206;;Salt & Sugar
+;5555207;;Organic Staples
+;5555301;;Diwali Gift Packs
+;5555302;;Beverages Best Offers
+;5555303;;Soft Drinks
+;5555304;;Juices & Concentrates
+;5555305;;Tea & Coffee
+;5555306;;Health & Energy Drinks
+;5555307;;Milk Drinks
+;5555401;;Home & Kitchen Best Offers
+;5555402;;Plasticware
+;5555403;;Kitchen Tools & Accessories
+;5555404;;Dining and Serving
+;5555405;;Cleaning Equipment
+;5555406;;Cookware
+;5555407;;Storage & Containers
+;5555501;;Cleansers
+;5555502;;Dishwashers
+;5555503;;Laundry Detergent
+;5555504;;Repellents
+;5555505;;Premium Home Care
+;5555601;;Bath & Body
+;5555602;;Hair Care
+;5555603;;Skin Care
+;5555604;;Oral Care
+;5555605;;Health & Wellness
+;5555606;;Face Care
+;5555607;;Deos & Perfumes
+;5555701;;Breakfast & Diary Best Offers
+;5555702;;Milk & Milk Products
+;5555703;;Bread & Eggs
+;5555704;;Paneer & Curd
+;5555705;;Butter & Cheese
+;5555706;;Jams, Honey & Spreads
+;5555707;;Fruits
+;5555801;;Biscuits & Chocolates Offers
+;5555802;;Diwali Gift Packs
+;5555803;;Biscuits & Cookies
+;5555804;;Namkeen & Snacks
+;5555805;;Chips & Crisps
+;5555806;;Chocolates & Candies
+;5555807;;Sweets
+;5555901;;Noodles & Pasta Offers
+;5555902;;Noodles & Vermicelli
+;5555903;;Pasta & Soups
+;5556001;;Sauces & Ketchups
+;5556002;;Jams & Spreads
+;5556003;;Mouth Freshners & Digestives
+;5556004;;Health Foods
+;5556101;;Diwali Gift Packs
+;5556102;;Diwali Light & Diyas
+;5556103;;Diwali Fruits Basket
+;5556201;;Baby Food
+;5556202;;Diapers & Wipes
+;5556203;;Baby Skin & Hair Care
+;5556204;;Baby Accessories & More
+;5556301;;Chocolates & Snacks
+;5556302;;Beverages
+;5556303;;Jams & Spreads
+;5556304;;Breakfast & Dairy
+;5556305;;Sauces & Dressings
+;5556306;;Home & Personal Care
+;5556401;;Dog Supplies
+;5556402;;Cat Supplies
+
+#SubCategory
+
+;55551021;;All Fruits
+;55551022;;Imported Fruits
+;55551031;;All Vegetables
+;55551032;;Exotics
+;55551041;;Cut Fresh
+;55551042;;Herbs
+;55551043;;Sprouts
+;555520101;;Dry Fruits Gift Packs
+;555520201;;Dry Fruits Gift Packs
+;555520202;;Almonds & Cashews
+;555520203;;Other Dry Fruits
+;555520204;;Nuts & Seeds
+;555520301;;Soyabean Oils
+;555520302;;Sunflower Oils
+;555520303;;Mustard Oils
+;555520304;;Health Oils
+;555520305;;Olive Oils
+;555520401;;Ghee
+;555520501;;Whole Spices
+;555520502;;Powedered Spices
+;555520503;;Ready Masala
+;555520504;;Cooking Pasta & Others
+;555520601;;Sugar
+;555520602;;Salt
+;555520603;;Jaggery & Others
+;555520701;;Oil & Vinegars
+;555520702;;Sugar & Spices
+;555520703;;Rice & Flour
+;555530101;;Beverages Gift Packs
+;555530301;;Mango Drinks
+;555530302;;Cans
+;555530303;;Pet Bottles
+;555530401;;Beverages Gift Packs
+;555530402;;Mango & Orange Juices
+;555530403;;Concentrates
+;555530404;;Assorted Juices
+;555530501;;Tea
+;555530502;;Green Tea
+;555530503;;Coffee
+;555530601;;Chocolate Health Drinks
+;555530602;;Health Drinks
+;555530603;;Energy Drinks
+;555530701;;Chaash & Lassi
+;555530702;;Milk Shake & Flavoured Milk
+;555540201;;Buckets & Bathroom Essentials
+;555540202;;Home Essentials
+;555540301;;Choppers
+;555540302;;Cutlery & Spoons
+;555540303;;Gas Lighter
+;555540304;;Kitchen Accessories
+;555540401;;Dinner Sets
+;555540501;;Brooms and Mops
+;555540502;;Cleaning Cloths & Pads
+;555540503;;Dustbins
+;555540601;;Cookware Set
+;555540602;;Fry Pan
+;555540603;;Tawa & Kadai
+;555540701;;Bottles & Sippers
+;555540702;;Containers
+;555540703;;Lunch Boxes
+;555550101;;Floor Cleaners
+;555550102;;Multi-Purpose Cleaners
+;555550201;;Dishwashing Bars
+;555550202;;Scrubbers & Cleaning Aids
+;555550301;;Detergent Powders
+;555550302;;Liquid Detergents
+;555550401;;Mosquito Repellents
+;555550402;;Creams & Other Repellents
+;555550501;;Fabric Care
+;555550502;;Wipes Cleaners & Others
+;555560101;;Body Wash
+;555560102;;Soaps
+;555560103;;Sanitizer
+;555560201;;Shampoo
+;555560202;;Conditioner
+;555560203;;Hair Oil & Others
+;555560301;;Body Lotions
+;555560302;;Face Cream
+;555560401;;Toothpaste
+;555560402;;Mouthwash & Others
+;555560403;;Toothbrush
+;555560501;;Pain Relievers
+;555560502;;Antiseptics
+;555560601;;Face Cream
+;555560602;;Face Wash
+;555560603;;More Face Products
+;555570201;;Poly Milk
+;555570202;;Lassi & Chaach
+;555570203;;Flavoured Milk & Milk Shake
+;555570204;;Cream & Whitener
+;555570301;;Breads
+;555570302;;Eggs
+;555570303;;Speciality Breads
+;555570401;;Paneer & Tofu
+;555570401;;Curd
+;555570501;;Butter
+;555570502;;Cheese
+;555570601;;Honey
+;555570602;;Jam
+;555570603;;Speciality Spreads
+;555570701;;All Fruits
+;555570702;;Imported Fruits
+;555580201;;Chocolate Gift Packs
+;555580202;;Sweets Gift Packs
+;555580203;;Biscuits Gift Packs
+;555580301;;Biscuits Gift Packs
+;555580302;;Cookies and Cakes
+;555580303;;Healthy & Digestive
+;555580304;;Cream Biscuits
+;555580305;;Sweet and Salty
+;555580401;;Bhujia & Sev
+;555580402;;Namkeen & Mixtures
+;555580403;;Dry Fruits & Nuts
+;555580501;;Potato Chips
+;555580502;;Popcorns
+;555580601;;Chocolate Gift Packs
+;555580602;;Imported
+;555580603;;Toffees & Candies
+;555580701;;Sweets
+;555580702;;Fresh Sweets
+;555590201;;Instant Noodles
+;555590202;;Vermicellli
+;555590301;;Pasta
+;555590302;;Soup
+;555600101;;Tomato Sauce
+;555600102;;Soya & Chilli Sauces
+;555600201;;Tomato Sauce
+;555600202;;Soya & Chilli Sauces
+;555600401;;Chyawanprash
+;555600402;;Health Supplements
+;555610101;;Beverages Gift Packs
+;555610102;;Biscuits Gift Packs
+;555610103;;Chocolates Gift Packs
+;555610104;;Dry Fruits Gift Packs
+;555610105;;Sweets Gift Packs
+;555620201;;Diapers
+;555620202;;Wipes
+;555620301;;Bathing Needs
+;555620302;;Body Care & Others
+;555620401;;Baby Needs
+;555620402;;Oral Care
+;555630101;;Dry Fruits & Nuts
+;555630102;;Chips & Crips
+;555630103;;Candies
+;555630104;;Biscuits & Cookies
+;555630105;;Other Snacks
+;555630201;;Tea
+;555630202;;Coffee
+;555630203;;Juices
+;555630204;;Concentrates & Mixers
+;555630301;;Jams
+;555630302;;Spreads
+;555630401;;Breakfast Cereals
+;555630402;;Oats & Flakes
+;555630403;;Cheese & Butter
+;555630501;;Chilli & Hot
+;555630502;;Salad Dressings
+;555630503;;Other Sauces & Dips
+;555630601;;Personal Care
+;555630602;;Wellness
+;555640101;;Dog Food & Treats
+;555640102;;Dog Grooming & Accessories
+;555640201;;Cat Food & Treats
+;555640202;;Cat Grooming & Accessories
+
